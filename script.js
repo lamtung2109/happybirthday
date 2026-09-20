@@ -150,4 +150,24 @@ document.addEventListener('DOMContentLoaded', function() {
         animate();
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const audio = document.getElementById('mpAudio');
+  const btn = document.getElementById('mpBtn');
+  const disc = document.getElementById('mpDisc');
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) audio.play();
+    else audio.pause();
+  });
+
+  audio.addEventListener('play', () => {
+    disc.classList.add('playing');
+    btn.textContent = '❚❚';
+  });
+
+  audio.addEventListener('pause', () => {
+    disc.classList.remove('playing');
+    btn.textContent = '▶';
+  });
+});
 
